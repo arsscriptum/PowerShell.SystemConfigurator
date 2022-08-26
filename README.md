@@ -4,16 +4,11 @@ The SystemConfigurator script suites is a powershell solution providing all the 
 ```
 	# This will install all chocolatey package manager
     . ./choco.ps1
-    Install-Install-Chocolatey 
-
+    Install-Chocolatey 
+    
 	# This will install all essential windows applications via Chocolatey
     . ./choco.ps1
-    Install-ChocoApps 
+    Install-ChocoApps -Path .\scripts\ChocoAppsNew.csv
 ```
-
-### Overview of operations to be executed
-- Create the permanent directory structure
-- Setup the PowerShell user profile
-- Setup the PowerShell module development environment: builder and environment values
 
 ![SystemConfigurator](https://raw.githubusercontent.com/arsscriptum/PowerShell.SystemConfigurator/master/img/sysconfig.png)

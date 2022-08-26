@@ -29,6 +29,8 @@ KB3035131 | 1.0.3
 microsoft-windows-terminal | 1.14.1962.0
 nmap | 7.92.0.20220321
 pasteboard | 1.1.0
+picotorrent | 0.25.0
+picotorrent.install | 0.25.0
 pip | 1.2.0
 pstools | 1.2012.04.12
 putty | 0.77
@@ -36,7 +38,6 @@ putty.portable | 0.77
 python | 3.10.6
 python2 | 2.7.18
 python3 | 3.10.6
-qbittorrent | 4.4.3.1
 scp | 5.0.0
 screentogif | 2.37.0
 screentogif.portable | 2.37.0
