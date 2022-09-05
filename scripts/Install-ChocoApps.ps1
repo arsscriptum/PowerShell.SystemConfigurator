@@ -7,7 +7,7 @@
 [CmdletBinding(SupportsShouldProcess)]
 param (
     [Parameter(Mandatory = $false)]
-    [String]$Path = "$PSScriptRoot\ChocoApps.csv"
+    [String]$Path = "$PSScriptRoot\ChocoAppsNew.csv"
 )
 
 #This will self elevate the script so with a UAC prompt since this script needs to be run as an Administrator in order to function properly.
@@ -22,7 +22,7 @@ If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 . "$PSScriptRoot\ps\log.ps1"
 . "$PSScriptRoot\ps\choco.ps1"
 
-Install-ChocoApps -Path $Path
+UnInstall-ChocoApps -Path $Path
 
 
 Write-Log "Install-ChocoApps -Path $Path"

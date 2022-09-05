@@ -46,6 +46,40 @@ function Install-ChocoApps{
 }
 
 
+function UnInstall-ChocoApps{
+    [CmdletBinding(SupportsShouldProcess)]
+    param (
+        [Parameter(Mandatory = $true, Position=0)]
+        [String]$Path
+    )
+    try{
+        $TestMode = $false
+        if($PSBoundParameters.ContainsKey('WhatIf')){
+            $TestMode = $True
+            Write-Verbose "[WhatIf] TestMode Enabled"
+        }
+        
+        $CsvData = Import-csv -Path $Path -Delimiter '|'
+        $ChocoExe = (Get-Command 'choco.exe').Source
+        ForEach($c in $CsvData){ 
+            $app = $c.'Program '
+            $LogFile = "$ENV:Temp\choco\automatic-install-$app. log"
+            $Null = New-Item -Path $LogFile -ItemType File -Force -ErrorAction Ignore
+                try{
+                    Write-Verbose "`"$ChocoExe`" `"install`" `"$app`" `"--log-file=$LogFile`" `"-y`"  "
+                    &"$ChocoExe" "uninstall" "$app"  "-y"  
+                }catch{
+                    Write-Host "Problem when installing `"$app`""
+                }
+            
+        }
+
+    }catch{
+        Write-Error $_
+    }
+
+}
+
 function Export-InstalledAppList{
     [CmdletBinding(SupportsShouldProcess)]
     param (
