@@ -36,27 +36,25 @@ rbenv install 3.0.1
 rbenv global 3.0.1
 ruby -v
 
-gem update
-gem install jekyll bundle
-
-
+###############################################################################
+# REQUIREMENTS
+###############################################################################
 sudo apt-get -y install git curl autoconf bison build-essential 
 sudo apt-get -y install libssl-dev libyaml-dev libreadline6-dev zlib1g-dev
 sudo apt-get -y install libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
+sudo apt-get -y install make gcc gpp build-essential zlib1g zlib1g-dev ruby-dev dh-autoreconf
 
 
-
-sudo apt-get install make gcc gpp build-essential zlib1g zlib1g-dev ruby-dev dh-autoreconf
-
-
+###############################################################################
 # GNU PG
+###############################################################################
 sudo apt install gnupg2
 curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823" | sudo apt-key add
 
-
-
-
-# INSTALL RVM - BEGIN
+###############################################################################
+# RVM VM is a command-line tool which allows you to easily install, manage, 
+# and work with multiple ruby environments from interpreters to sets of gems.
+###############################################################################
 curl -sSL https://get.rvm.io -o rvm.sh
 curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
 curl -sSL https://rvm.io/pkuczynski.asc | gpg2 --import -
@@ -65,9 +63,12 @@ cat ./rvm.sh | bash -s stable --rails
 
 source /home/gp/.rvm/scripts/rvm
 
-
 rvm install "ruby-3.1.2"
 
+
+###############################################################################
+# BUNDLER
+###############################################################################
 
 sudo gem update
 
