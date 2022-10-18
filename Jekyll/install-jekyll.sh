@@ -13,17 +13,29 @@
 sudo apt-get update -y && sudo apt-get upgrade -y
 
 sudo apt-add-repository ppa:brightbox/ruby-ng
-sudo apt-get update
+sudo apt-get update --allow-insecure-repositories
 sudo apt-get -y install ruby2.5 ruby2.5-dev build-essential  dh-autoreconf ;
 
+
+sudo apt install git curl autoconf bison build-essential 
+sudo apt install libssl-dev libyaml-dev libreadline6-dev zlib1g-dev
+sudo apt install libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
+
+
+sudo apt install ruby-full
 
 # GNU PG
 sudo apt install gnupg2
 curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823" | sudo apt-key add
 
 
+
+
 # INSTALL RVM - BEGIN
 curl -sSL https://get.rvm.io -o rvm.sh
+curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
+curl -sSL https://rvm.io/pkuczynski.asc | gpg2 --import -
+
 cat ./rvm.sh | bash -s stable --rails
 
 
